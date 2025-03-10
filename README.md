@@ -15,12 +15,6 @@ This project is a **Student Learning Platform** that allows students to:
 
 ---
 
-## 🎬 Demo Video (Optional)
-👉 If you want, I can generate a quick **2-minute video demo** for this project 💻📽️.  
-👉 Would you like me to generate a **video script**? 🤔  
-
----
-
 ## 📊 Project Features
 | Feature | Status |
 |---------|--------|
