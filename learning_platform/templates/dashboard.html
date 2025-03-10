@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Welcome, {{ user.username }}!</h2>
+<p>This is your Dashboard.</p>
+
+<a href="{% url 'create_schedule' %}" class="btn btn-primary mb-3">➕ Create Study Plan</a>
+
+<h3>Your Study Plans</h3>
+<ul class="list-group">
+    {% for schedule in schedules %}
+    <li class="list-group-item">
+        <strong>Exam Name:</strong> {{ schedule.exam_name }} <br>
+        <strong>Exam Date:</strong> {{ schedule.exam_date }} <br>
+        <a href="{% url 'view_roadmap' schedule.id %}" class="btn btn-success mt-2">
+            📅 View Roadmap
+        </a>
+        <a href="{% url 'delete_schedule' schedule.id %}" class="btn btn-danger mt-2">
+            ❌ Delete
+        </a>
+    </li>
+    {% empty %}
+    <li class="list-group-item text-danger">
+        🚫 No study plans created yet. <a href="{% url 'create_schedule' %}">Create One</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Study Roadmap for {{ schedule.exam_name }}</h2>
+<p><strong>Exam Date:</strong> {{ schedule.exam_date }}</p>
+
+<table class="table table-bordered table-striped mt-4">
+    <thead class="table-dark">
+        <tr>
+            <th>Day</th>
+            <th>Task</th>
+            <th>Practice Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td><strong>{{ task.topic.splitlines.0 }}</strong></td>
+            <td>
+                {% for line in task.topic.splitlines|slice:"1:" %}
+                    {{ line }}<br>
+                {% endfor %}
+            </td>
+            <td>{{ task.practice_time }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/" class="btn btn-primary mt-3">Back to Dashboard</a>
+{% endblock %}
